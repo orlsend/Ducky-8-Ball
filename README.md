@@ -1,6 +1,8 @@
 # Ducky-8-Ball
  Magic 8-Ball application on the DuckyPad Pro
 
+![image](https://github.com/user-attachments/assets/faab8fa5-e83b-4fea-81f3-d626dac8e4a8)
+
 // --- Magic 8-Ball Script for duckyPad ---
 
 // Declare global variables
