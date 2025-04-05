@@ -1,0 +1,60 @@
+VAR $answer = 0
+VAR $key_pressed = 0
+
+WHILE 1
+
+  OLED_CLEAR
+  OLED_CURSOR 0 0
+  OLED_PRINT "Magic 8-Ball!"
+  OLED_CURSOR 0 16
+  OLED_PRINT "Press any key..."
+  OLED_UPDATE
+
+  $key_pressed = $_BLOCKING_READKEY
+
+  IF $key_pressed == 23 THEN
+    OLED_CLEAR
+    OLED_CURSOR 0 16
+    OLED_PRINT "Script Halted."
+    OLED_UPDATE
+    DELAY 1000
+    HALT
+  END_IF
+
+  OLED_CLEAR
+  OLED_CURSOR 0 16
+  OLED_PRINT "Thinking..."
+  OLED_UPDATE
+  DELAY 500
+
+  $_RANDOM_MIN = 1
+  $_RANDOM_MAX = 8
+  $answer = $_RANDOM_INT
+
+  OLED_CLEAR
+  OLED_CURSOR 0 16
+
+  IF $answer == 1 THEN
+    OLED_PRINT "It is certain."
+  ELSE IF $answer == 2 THEN
+    OLED_PRINT "Reply hazy, try again."
+  ELSE IF $answer == 3 THEN
+    OLED_PRINT "Don't count on it."
+  ELSE IF $answer == 4 THEN
+    OLED_PRINT "Signs point to yes."
+  ELSE IF $answer == 5 THEN
+    OLED_PRINT "My sources say no."
+  ELSE IF $answer == 6 THEN
+    OLED_PRINT "Outlook good."
+  ELSE IF $answer == 7 THEN
+    OLED_PRINT "Ask again later."
+  ELSE
+    OLED_PRINT "Very doubtful."
+  END_IF
+
+  OLED_UPDATE
+
+  DELAY 1000
+
+END_WHILE
+
